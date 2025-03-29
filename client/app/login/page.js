@@ -1,8 +1,6 @@
-'use client'
-
+import Link from "next/link";
 import Input from "@/Components/Input";
 import { ToastContainer } from "react-toastify";
-import Link from "next/link";
 import LoginButton from "@/Components/LoginButton";
 
 export default function Login() {

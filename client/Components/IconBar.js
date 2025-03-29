@@ -1,11 +1,12 @@
 import Link from "next/link";
 import DarkMode from "./DarkMode";
-import { ArrowRightStartOnRectangleIcon, ChatBubbleLeftRightIcon, UserCircleIcon, UserGroupIcon, UserIcon, UserPlusIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { ChatBubbleLeftRightIcon, UserCircleIcon, UserGroupIcon, UserIcon, UserPlusIcon, UsersIcon } from "@heroicons/react/24/solid";
 import LightMode from "./LightMode";
+import LogoutButton from "./LogoutButton";
 
 export default function IconBar({ slugName, theme, userImage }) { 
     return (
-        <div className='max-lg:hidden dark:bg-slate-900 bg-white h-screen pt-1 flex flex-col items-center justify-between lg:w-[4vw]'>
+        <div className='dark:bg-slate-900 bg-white h-screen pt-1 flex flex-col items-center justify-between lg:w-[4vw]'>
             <div className="flex flex-col gap-1">
                 <Link href='/profile' className={`${slugName === 'profile' && 'bg-blue-600 text-white'} hover:bg-blue-600 hover:text-white p-2 rounded-lg border-2 border-blue-100 dark:border-gray-800`} title='profile'>
                     {userImage ? (
@@ -42,9 +43,7 @@ export default function IconBar({ slugName, theme, userImage }) {
                     <DarkMode />
                 )}
 
-                <button className='bg-red-600 hover:bg-red-700 p-2 rounded-lg' title='LogOut'>
-                    <ArrowRightStartOnRectangleIcon className='size-6 text-white' />
-                </button>
+                <LogoutButton />
             </div>
         </div>
     )

@@ -62,9 +62,9 @@ export default function AllUsers() {
                     <h4 className="capitalize">{item?.name.slice(0, 10)}</h4>
 
                     {false ? (
-                        <button disabled className="text-white rounded-lg bg-blue-600 px-2 py-1 outline-none hover:bg-blue-800 duration-500 cursor-not-allowed">Request Send</button>
+                        <button disabled className="text-white rounded-lg bg-blue-600 px-2 py-1 outline-hidden hover:bg-blue-800 duration-500 cursor-not-allowed">Request Send</button>
                     ) : (
-                        <button onClick={(e) => addFriendHandler({id: item._id})} className="text-white rounded-lg bg-blue-600 px-2 py-1 outline-none hover:bg-blue-800 duration-500">Add Friend</button>
+                        <button onClick={(e) => addFriendHandler({id: item._id})} className="text-white rounded-lg bg-blue-600 px-2 py-1 outline-hidden hover:bg-blue-800 duration-500">Add Friend</button>
                     )}
                 </div>
 

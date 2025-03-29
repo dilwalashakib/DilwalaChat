@@ -34,9 +34,9 @@ export default function Friends({ userInfo, id }) {
             {users?.map(({ user, lastMessage }) => (
                 <div key={user._id} onClick={() => router.push(`/messages/${user?._id}`)} className={`lg:flex lg:gap-2 items-center justify-between px-2 py-3 cursor-pointer dark:hover:bg-gray-800 hover:bg-gray-300 duration-500 ease-in ${user?._id === id && "dark:bg-gray-800 bg-gray-300"}`}>
                     <div className="lg:flex lg:gap-1.5 lg:items-center">
-                        <div className="relative">
+                        <div className="relative max-lg:w-full">
                             <img
-                                className='rounded-full h-[50px] w-[50px] border-2 dark:border-gray-200 border-green-500 object-cover'
+                                className='h-[50px] lg:w-[50px] rounded-full max-lg:min-w-[50px] border-2 dark:border-gray-200 border-green-500 object-cover'
                                 src={`../profile/${user?.image ? user.image : 'default.png'}`}
                                 alt='Profile pic'
                             />

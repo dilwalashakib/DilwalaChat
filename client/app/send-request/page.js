@@ -6,11 +6,12 @@ import Link from "next/link";
 import { ToastContainer } from "react-toastify";
 
 const getUserInfo = async() => {
-    const info = cookies().get("userInfo");
-    const theme = cookies().get("theme")?.value;
+    const cookie = await cookies();
+    const info = cookie.get("userInfo")?.value;
+    const theme = cookie.get("theme")?.value;
     
     if(info) {
-        const userInfo = jwtDecode(info.value);
+        const userInfo = jwtDecode(info);
         return { userInfo, theme }
     }
 }

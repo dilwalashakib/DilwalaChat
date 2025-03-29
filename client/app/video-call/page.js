@@ -3,10 +3,11 @@ import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
 
 const getUserInfo = async() => {
-    const info = cookies().get("userInfo");
+    const cookie = await cookies();
+    const info = cookie.get("userInfo")?.value;
     
     if(info) {
-        const userInfo = jwtDecode(info.value);
+        const userInfo = jwtDecode(info);
         return userInfo
     }
 }

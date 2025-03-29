@@ -35,6 +35,6 @@ export default function LoginButton() {
     }
 
     return (
-        <button formAction={loginHandler} className="w-full py-2 rounded-lg bg-blue-600 text-xl hover:bg-blue-800 mt-1">Login</button>
+        <button formAction={loginHandler} className="w-full py-2 rounded-lg bg-blue-600 text-xl hover:bg-blue-800 mt-1 cursor-pointer">Login</button>
     )
 }

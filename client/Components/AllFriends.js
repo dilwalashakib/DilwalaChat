@@ -55,7 +55,7 @@ export default function AllFriends({ myId }) {
                 />
                 <div className="text-center mt-1">
                     <h4>{item?.senderId?._id === myId ? item?.receiverId?.name : item?.senderId?.name}</h4>                        
-                    <button onClick={(e) => unfriendHandler({id: item._id})} className="text-white rounded-lg bg-red-600 px-2 py-1 outline-none hover:bg-red-900 duration-500">Unfriend</button>
+                    <button onClick={(e) => unfriendHandler({id: item._id})} className="text-white rounded-lg bg-red-600 px-2 py-1 outline-hidden hover:bg-red-900 duration-500">Unfriend</button>
                 </div>
             </div>
         ))}

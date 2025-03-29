@@ -5,8 +5,8 @@ import RegisterButton from "@/Components/RegisterButton";
 
 export default function Register() {
     return (
-        <form className='flex justify-center items-center h-screen'>
-            <div className='w-96 bg-slate-200 dark:bg-slate-900 p-6 rounded-lg'>
+        <form className='flex justify-center items-center h-screen dark:text-white dark:bg-gray-900'>
+            <div className='w-96 bg-slate-200 dark:bg-blue-950 p-6 rounded-lg'>
                 <h2 className="text-center text-3xl mb-4">Register Here</h2>
             
                 <Input 

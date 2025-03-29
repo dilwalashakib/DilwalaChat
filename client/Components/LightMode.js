@@ -5,7 +5,7 @@ import { lighmode } from "@/actions/themeAction";
 
 export default function LightMode() {
     return (
-        <button onClick={(e) => lighmode()} className="p-1.5 bg-white hover:bg-blue-200 rounded-full" title="Light">
+        <button onClick={(e) => lighmode()} className="p-1.5 bg-white hover:bg-blue-200 rounded-full cursor-pointer" title="Light">
             <SunIcon className='size-6 dark:text-black' />
         </button>
     )

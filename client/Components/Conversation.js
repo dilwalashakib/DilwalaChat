@@ -189,7 +189,7 @@ export default function Conversation({ userInfo, id }) {
     return (
         currentFriend ? (
         <>
-        <div className={`${isInfo ? 'lg:w-[48vw] max-lg:ml-16 max-lg:w-full' : 'lg:w-[70vw] max-lg:ml-16 max-lg:w-full'} h-screen dark:text-white relative`}>
+        <div className={`${isInfo ? 'lg:w-[48vw] max-lg:w-full' : 'lg:w-[70vw] max-lg:w-full'} h-screen dark:text-white relative`}>
             {call?.receiverId && (
                 <div className="text-white w-96 bg-gray-900 absolute top-0.5 right-0.5 p-4 rounded-xl">
                     <h3 className="text-xl">{call?.senderName} Call you!</h3>
@@ -216,11 +216,11 @@ export default function Conversation({ userInfo, id }) {
                     <h3 className='text-xl'>{currentFriend?.name}</h3>
                 </div>
                 <div className='flex items-center gap-3 cursor-pointer '>
-                    <button className='p-2 dark:bg-gray-950 bg-blue-600 rounded-full hover:bg-blue-900 dark:hover:bg-blue-400'>
+                    <button className='max-sm:hidden p-2 dark:bg-gray-950 bg-blue-600 rounded-full hover:bg-blue-900 dark:hover:bg-blue-400'>
                         <PhoneIcon className="size-5 text-white" /> 
                     </button>
 
-                    <Link href={`/video-call?senderId=${userInfo?.id}&receiverId=${id}`} className='p-2 dark:bg-gray-950 bg-blue-600 rounded-full hover:bg-blue-900 dark:hover:bg-blue-400'>
+                    <Link href={`/video-call?senderId=${userInfo?.id}&receiverId=${id}`} className='max-sm:hidden p-2 dark:bg-gray-950 bg-blue-600 rounded-full hover:bg-blue-900 dark:hover:bg-blue-400'>
                         <VideoCameraIcon className="size-5 text-white" />
                     </Link>
 
@@ -262,15 +262,15 @@ export default function Conversation({ userInfo, id }) {
             <div className='flex gap-2 items-center justify-between w-full dark:bg-blue-950 px-3 py-1 relative'>
                 <div className={`flex gap-3 items-center text-xl`}>
 
-                    <button className="dark:bg-gray-950 bg-blue-600 p-2 rounded-full hover:bg-blue-950">
+                    <button className="max-sm:hidden dark:bg-gray-950 bg-blue-600 p-2 rounded-full hover:bg-blue-950 cursor-pointer">
                         <DocumentPlusIcon className="size-5 text-white" />
                     </button>
 
-                    <button onClick={() => setIsImage(!isImage)} className="dark:bg-gray-950 bg-blue-600 p-2 rounded-full hover:bg-blue-950">
+                    <button onClick={() => setIsImage(!isImage)} className="dark:bg-gray-950 bg-blue-600 p-2 rounded-full hover:bg-blue-950 cursor-pointer">
                         <PhotoIcon className="size-5 text-white" />
                     </button>
 
-                    <button className="dark:bg-gray-950 bg-blue-600 p-2 rounded-full hover:bg-blue-950">
+                    <button className="max-sm:hidden dark:bg-gray-950 bg-blue-600 p-2 rounded-full hover:bg-blue-950 cursor-pointer">
                         <MicrophoneIcon className="size-5 text-white" />
                     </button>
                 </div>
@@ -279,14 +279,14 @@ export default function Conversation({ userInfo, id }) {
                     <input
                         value={msg}
                         onChange={(e) => setMsg(e.target.value)}
-                        className={`py-1.5 px-4 rounded-3xl outline-none w-full dark:bg-gray-950 bg-gray-300 dark:text-white text-lg lg:pr-10`}
+                        className={`py-1.5 px-4 rounded-3xl outline-hidden w-full dark:bg-gray-950 bg-gray-300 dark:text-white text-lg lg:pr-10`}
                         placeholder='type a message...'
                     />
-                    <button onClick={(e) => setEmoji(!emoji)} className='text-2xl absolute top-2 right-2'>
+                    <button onClick={(e) => setEmoji(!emoji)} className='max-sm:hidden text-2xl absolute top-2 right-2'>
                         <FaceSmileIcon className="size-6 dark:text-yellow-400 text-yellow-700 hover:text-yellow-600" />
                     </button>
 
-                    {emoji && <div className="w-80 dark:bg-gray-700 bg-white p-2 absolute bottom-12 right-2 text-2xl rounded-2xl">
+                    {emoji && <div className="max-sm:hidden w-80 dark:bg-gray-700 bg-white p-2 absolute bottom-12 right-2 text-2xl rounded-2xl">
                         {emojiArray?.map((item) => (
                             <span
                                 className="p-1 m-1 rounded-full cursor-pointer hover:bg-gray-950 inline-block"
@@ -300,21 +300,21 @@ export default function Conversation({ userInfo, id }) {
                 </div>
 
                 {isImage && <div className={`${isInfo ? 'w-8/12': 'w-6/12'} dark:bg-gray-950 bg-white p-3 rounded-xl absolute bottom-14 right-20`}>
-                    <div className='w-full h-16 border-dashed border-2 rounded-sm' >
+                    <div className='w-full h-16 border-dashed border-2 rounded-xs' >
                         <label htmlFor="file" className="cursor-pointer dark:bg-gray-900 w-full h-full flex items-center justify-center dark:hover:bg-gray-950 hover:bg-gray-200">
                             <ArrowUpTrayIcon className="size-7 dark:text-white" />
                         </label>
                         <input id="file" type="file" accept=".jpg, .jpeg, .png" onChange={(e) => setFile(e.target.files[0])} hidden />
                     </div>
-                    {file && <div className='flex gap-2 mt-4'>
-                        <div className='relative w-56 h-40'>
-                            <img className='w-56 h-40 object-cover rounded-xl' src={URL.createObjectURL(file)}/>
+
+                    {file && <div className='md:flex md:gap-2 mt-4 max-md:w-full'>
+                        <div className='relative md:w-3/5 max-md:w-full'>
+                            <img className='w-full h-full object-cover rounded-xl' src={URL.createObjectURL(file)}/>
                             <button onClick={(e) => setFile(null)}>
                                 <TrashIcon className='size-8 text-red-600 dark:bg-gray-950 bg-white p-1 rounded-full absolute top-2 right-2 hover:bg-red-500 hover:text-gray-950' />
                             </button>
                         </div>
-                        <div>
-                            <p className='text-green-600 text-lg'>Name: {file.name}</p>
+                        <div className="max-md:hidden w-2/5">
                             <p className='text-green-600 text-lg'>Type: {file.type}</p>
                             <p className='text-green-600 text-lg'>Size: {(file.size / 1024).toFixed(2)} kb</p>
                         </div>              
@@ -322,11 +322,11 @@ export default function Conversation({ userInfo, id }) {
                 </div>}
                 <div className={`text-2xl flex items-center`}>
                     { msg || isImage ? (
-                        <button onClick={sendMsgHandler} className='dark:bg-gray-950 bg-blue-800 p-2 rounded-lg'>
+                        <button onClick={sendMsgHandler} className='dark:bg-gray-950 bg-blue-800 p-2 rounded-lg cursor-pointer'>
                             <PaperAirplaneIcon className="size-6 text-blue-400 hover:text-blue-600" />
                         </button>
                     ) : (
-                        <button onClick={(e) => sendMsgHandler(e, '❤')} className="dark:bg-gray-950 bg-red-950 p-2 rounded-lg">
+                        <button onClick={(e) => sendMsgHandler(e, '❤')} className="dark:bg-gray-950 bg-red-950 p-2 rounded-lg cursor-pointer">
                             <HeartIcon className="size-6 text-red-600 hover:text-red-700" />
                         </button>
                     )}
@@ -334,7 +334,7 @@ export default function Conversation({ userInfo, id }) {
             </div>
         </div>
 
-        {isInfo && <ConversationInfo currentFriend={currentFriend} />}
+        {isInfo && <ConversationInfo currentFriend={currentFriend} messages={messages} />}
         </>
         ) : (
             <div className="flex w-[70vw] justify-center items-center text-2xl h-screen dark:bg-blue-950 dark:text-white">Select Your Friend</div>

@@ -82,9 +82,9 @@ export default function FriendRequest() {
                 <div className="text-center mt-1">
                     <h4>{item?.senderId?.name}</h4>
                     <div className="flex flex-col gap-1">
-                        <button onClick={(e) => confirmFriendRequest({id: item._id})} className="text-white rounded-lg bg-blue-600 px-2 py-1 outline-none hover:bg-blue-900 duration-500">Confirm</button>
+                        <button onClick={(e) => confirmFriendRequest({id: item._id})} className="text-white rounded-lg bg-blue-600 px-2 py-1 outline-hidden hover:bg-blue-900 duration-500">Confirm</button>
                         
-                        <button onClick={(e) => removeFriendHandler({id: item._id})} className="text-white rounded-lg bg-red-600 px-2 py-1 outline-none hover:bg-red-900 duration-500">Remove</button>
+                        <button onClick={(e) => removeFriendHandler({id: item._id})} className="text-white rounded-lg bg-red-600 px-2 py-1 outline-hidden hover:bg-red-900 duration-500">Remove</button>
                     </div>
                 </div>
             </div>
